@@ -1,0 +1,62 @@
+/* 观潮 · rigor8 样式（浅色，沿用 style.v15 / v7ui 的变量和类） */
+.r8-ci .r8-wait{color:var(--ink3,#6E6E78)}
+.r8-note{display:block;font-size:11.5px;color:var(--ink3,#6E6E78)}
+.rg-st.mid,.rg-ic.mid{background:#EEF1FF;color:#4C6FFF}
+b.mid{color:#4C6FFF}
+
+/* 抽屉：累计增量 */
+.r8-exd{margin-top:14px;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
+.r8-exd.in{opacity:1;transform:none}
+.r8-cum{width:100%;height:auto;margin:6px 0 2px;overflow:visible}
+.r8-band{fill:rgba(255,36,66,.08);stroke:none}
+.r8-zero{stroke:#D8D3C9;stroke-width:1;stroke-dasharray:3 3}
+.r8-line{fill:none;stroke:#1D1D1F;stroke-width:2;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:r8Draw 1.1s cubic-bezier(.3,.6,.3,1) .15s forwards}
+@keyframes r8Draw{to{stroke-dashoffset:0}}
+.r8-dot{fill:#fff;stroke:#1D1D1F;stroke-width:1.5;opacity:0;animation:r8In .3s ease-out var(--d) forwards}
+.r8-dot.out{fill:#FF2442;stroke:#FF2442}
+@keyframes r8In{to{opacity:1}}
+.r8-ax{font-size:10.5px;fill:#9A9AA4;font-family:inherit}
+.r8-cross{fill:#FF2442;font-weight:700;opacity:0;animation:r8In .4s ease-out 1.2s forwards}
+.r8-p{font-size:12px;color:var(--ink3,#6E6E78);line-height:1.6;margin:2px 0 10px}
+.r8-facts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.r8-facts>div{background:#FCFBF9;border:1px solid var(--line,#E8E5DF);border-radius:12px;padding:10px 12px}
+.r8-facts span{display:block;font-size:11.5px;color:var(--ink3,#6E6E78)}
+.r8-facts b{display:block;font-size:18px;margin:2px 0;font-variant-numeric:tabular-nums}
+.r8-facts b.ok{color:var(--green,#16A05D)}.r8-facts b.mid{color:#4C6FFF}.r8-facts b.warn{color:#B87700}
+.r8-facts em{font-style:normal;font-size:11.5px;color:var(--ink2,#55555E);line-height:1.5}
+@media (max-width:480px){.r8-facts{grid-template-columns:1fr}}
+
+/* 笔记明细：拆开看平时的样子 */
+.r8-comp{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line,#E8E5DF);opacity:0;transform:translateY(6px);transition:opacity .45s,transform .45s}
+.r8-comp.in{opacity:1;transform:none}
+.r8-comp-h{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin-bottom:8px}
+.r8-comp-h b{font-size:14.5px}.r8-comp-h span{font-size:12px;color:var(--ink3,#6E6E78)}
+.r8-comp-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:12px}
+.r8-comp-c{background:#FCFBF9;border:1px solid var(--line,#E8E5DF);border-radius:14px;padding:10px 12px}
+.r8-comp-c p{font-size:12.5px;color:var(--ink2,#55555E);line-height:1.6;margin:6px 0 0}
+.r8-k{display:inline-block;font-size:11.5px;font-weight:700;color:var(--ink3,#6E6E78);letter-spacing:.5px}
+.r8-tr{width:100%;height:54px;display:block}
+.r8-tr line{stroke:#FF2442;stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+.r8-comp.in .r8-tr line{animation:r8Draw .9s cubic-bezier(.3,.6,.3,1) .1s forwards}
+.r8-tr circle{fill:#fff;stroke:#FF2442;stroke-width:2}
+.r8-wk{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;height:64px;align-items:end;margin-top:6px}
+.r8-wb{display:flex;flex-direction:column;align-items:center;gap:3px;height:100%;justify-content:flex-end;cursor:default}
+.r8-wb i{display:block;width:100%;max-width:26px;height:0;border-radius:6px 6px 2px 2px;background:#D8D3C9}
+.r8-comp.in .r8-wb i{animation:r8Bar .6s cubic-bezier(.2,.7,.2,1) var(--d) forwards}
+@keyframes r8Bar{to{height:calc(var(--h) * .78)}}
+.r8-wb.hi i{background:var(--red,#FF2442)}.r8-wb.lo i{background:#9A9AA4}
+.r8-wb span{font-size:11px;color:var(--ink3,#6E6E78)}
+@media (max-width:640px){.r8-comp-g{grid-template-columns:1fr}}
+
+/* 实验 */
+.r8-calib{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:10px;padding:10px 12px;border-radius:12px;background:#EEF7F2;border:1px solid rgba(22,160,93,.25);font-size:12.5px;color:var(--ink2,#55555E);line-height:1.6;animation:rgDrop .4s ease-out both}
+.r8-calib b{font-size:15px;color:var(--green,#16A05D);font-variant-numeric:tabular-nums}
+.r8-mde{font-size:12.5px;color:var(--ink2,#55555E);line-height:1.7;margin:10px 0 4px;padding:9px 12px;border-radius:12px;background:#FCFBF9;border:1px solid var(--line,#E8E5DF)}
+.r8-mde:empty{display:none}
+
+/* 幕后：站在巨人肩上 */
+.r8-tbl td:first-child{min-width:190px}
+.r8-tbl td b{display:block}
+.r8-who{display:block;font-size:11.5px;color:var(--ink3,#6E6E78)}
+.r8-src{font-size:11.5px;color:var(--ink3,#6E6E78)}
+@media (prefers-reduced-motion: reduce){.r8-exd,.r8-comp{opacity:1;transform:none;transition:none}.r8-line,.r8-tr line{stroke-dashoffset:0;animation:none}.r8-dot,.r8-cross{opacity:1;animation:none}.r8-wb i{height:calc(var(--h) * .78);animation:none}}

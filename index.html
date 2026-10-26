@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>观潮 · 从种草到成交的全域账</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=&#39;http://www.w3.org/2000/svg&#39; viewBox=&#39;0 0 64 64&#39;%3E%3Crect width=&#39;64&#39; height=&#39;64&#39; rx=&#39;16&#39; fill=&#39;%23FF2442&#39;/%3E%3Cpath d=&#39;M10 40c6-8 12-8 18 0s12 8 18 0&#39; stroke=&#39;%23fff&#39; stroke-width=&#39;6&#39; fill=&#39;none&#39; stroke-linecap=&#39;round&#39;/%3E%3Cpath d=&#39;M14 26c5-6 9-6 13 0s8 6 13 0&#39; stroke=&#39;%23fff&#39; stroke-width=&#39;4&#39; fill=&#39;none&#39; stroke-linecap=&#39;round&#39; opacity=&#39;.65&#39;/%3E%3C/svg%3E"/>
+<link rel="stylesheet" href="style.v15.css"/><link rel="stylesheet" href="v7ui.css"/><link rel="stylesheet" href="rigor8.css"/><link rel="stylesheet" href="fx3.css"/>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" width="26" height="26"><path d="M8 42c7-10 14-10 21 0s14 10 21 0" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"></path><path d="M13 24c5-7 10-7 15 0s10 7 15 0" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".6"></path></svg>
+      </div>
+      <div class="brand-text">
+        <div class="brand-name-row">
+          <div class="brand-name">观潮</div>
+          <button class="detective-btn" id="btnDetective" type="button" title="种草侦探" aria-label="种草侦探">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2"></circle><path d="M15.5 15.5 L21 21" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"></path></svg>
+            <span>种草侦探</span>
+          </button>
+          <button class="brand-link" id="btnVision" type="button">落地设想</button>
+          <button class="brand-link" id="btnBehind" type="button">幕后</button>
+        </div>
+        <div class="brand-sub">从种草到成交的全域账 · 投前判断，投后复盘</div>
+      </div>
+    </div>
+    <div class="topbar-controls">
+      <div class="ctl">
+        <span class="ctl-label">视角</span>
+        <div class="seg" id="segView" role="group" aria-label="视角切换">
+          <button class="seg-btn active" data-view="merchant">商家</button>
+          <button class="seg-btn" data-view="manager">客户经理</button>
+        </div>
+      </div>
+      <div class="ctl ctl-shop">
+        <span class="ctl-label">店铺</span>
+        <div class="seg" id="segShop" role="group" aria-label="店铺切换">
+          <button class="seg-btn active" data-shop="study">留学工作室</button>
+          <button class="seg-btn" data-shop="shop">香薰小店</button>
+          <button class="seg-btn" data-shop="coffee">山野咖啡</button>
+          <button class="seg-btn" data-shop="import">导入数据</button>
+        </div>
+      </div>
+    </div>
+    <button class="tb-reset" id="btnResetDemo" type="button" title="演示重置" aria-label="演示重置">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.34-5.66"></path><path d="M20 4v4h-4"></path></svg>
+      <span>演示重置</span>
+    </button>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="notice" id="fictionNotice">
+    <b>示例数据</b>　三家示例店铺及其数据均为模拟。用模拟数据，是因为只有已知答案的数据，才能检验算法算得准不准（见「这些数是怎么算出来的」）；在「导入数据」可以换成你自己的真实数据。
+  </div>
+
+  <nav class="tabs" id="tabs" aria-label="页面切换"></nav>
+
+  <main id="main"></main>
+
+  <main id="managerView" hidden=""></main>
+
+  <footer class="foot">算法算对 · AI 办事 · 人做决定 · 示例店铺与数据为模拟，用于演示</footer>
+</div>
+
+<nav class="bottom-nav" id="bottomNav" aria-label="页面切换"></nav>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="engine.v7.js"></script>
+<script src="samples.v3.js"></script>
+<script src="experiment_demo.v1.js"></script>
+<script src="planner.v1.js"></script>
+<script src="agent.v2.js"></script>
+<script src="detective.v4.js"></script>
+<script src="extras.v2.js"></script>
+<script src="pages.v4.js"></script><script src="ask9.v4.js"></script>
+<script src="assumptions.v1.js"></script>
+<script src="app.v20.js"></script><script src="poster.v1.js"></script><script src="v7ui.js"></script><script src="rigor8.js"></script><script src="fx3.js"></script>
+
+
+</body></html>

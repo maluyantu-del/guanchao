@@ -1,0 +1,115 @@
+/* 观潮 · v7 覆盖层样式（浅色，沿用 style.v15 的变量） */
+.rg-pill{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;white-space:nowrap;vertical-align:middle}
+.rg-pill.ok{background:var(--green-soft,#EAF7F0);color:var(--green,#16A05D)}
+.rg-pill.warn{background:var(--yellow-soft,#FBF3E2);color:#B87700}
+.rg-link{border:0;background:none;color:var(--red,#FF2442);font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;padding:4px 0}
+.rg-link:hover{text-decoration:underline}
+b.ok,.rg-pl-sum b.ok{color:var(--green,#16A05D)} b.warn,.rg-pl-sum b.warn{color:#B87700}
+
+/* 算法运行条上的入口 */
+.rg-chip{margin-left:10px;display:inline-flex;align-items:center;gap:5px;border:1px solid rgba(22,160,93,.35);background:var(--green-soft,#EAF7F0);color:var(--green,#16A05D);font:inherit;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;cursor:pointer;vertical-align:middle;animation:rgPop .5s cubic-bezier(.3,1.6,.5,1) .2s both}
+.rg-chip:hover{background:#DDF2E6}
+.rg-pop{margin:-4px 2px 14px;background:#fff;border:1px solid var(--line,#E8E5DF);border-radius:16px;padding:14px 16px;box-shadow:0 10px 30px rgba(29,29,31,.08);animation:rgDrop .35s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rgDrop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@keyframes rgPop{0%{transform:scale(.6);opacity:0}100%{transform:none;opacity:1}}
+
+/* 5 项检验 */
+.rg-ledger{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line,#E8E5DF)}
+.rg-check-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin-bottom:8px}
+.rg-check-h b{font-size:15px}.rg-check-h span{font-size:12px;color:var(--ink3,#6E6E78)}
+.rg-check ol{list-style:none;margin:0;padding:0}
+.rg-ci{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-top:1px solid #F1EFEB;opacity:0;transform:translateY(4px)}
+.rg-ci:first-child{border-top:0}
+.rg-check.in .rg-ci{animation:rgRow .45s cubic-bezier(.2,.7,.2,1) var(--d) both}
+@keyframes rgRow{to{opacity:1;transform:none}}
+.rg-ic{width:20px;height:20px;border-radius:50%;flex:none;margin-top:1px;position:relative;background:#F1F1F4}
+.rg-ic.ok{background:var(--green,#16A05D)}.rg-ic.warn{background:#E0A100}.rg-ic.idle{background:#fff;border:2px dashed #CFC9C2;width:16px;height:16px;margin:2px}
+.rg-ic.ok::after{content:"";position:absolute;left:6px;top:3px;width:5px;height:9px;border:solid #fff;border-width:0 2.4px 2.4px 0;transform:rotate(45deg)}
+.rg-ic.warn::after{content:"!";position:absolute;inset:0;color:#fff;font-weight:800;font-size:13px;text-align:center;line-height:20px}
+.rg-check.in .rg-ic.ok,.rg-check.in .rg-ic.warn{animation:rgPop .45s cubic-bezier(.3,1.6,.5,1) calc(var(--d) + .2s) both}
+.rg-ci-t{flex:1;min-width:0}
+.rg-ci-t>b{display:block;font-size:13.5px}.rg-ci-t>span{display:block;font-size:12.5px;color:var(--ink2,#55555E);line-height:1.6}
+.rg-st{font-style:normal;font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:999px;flex:none;margin-top:1px}
+.rg-st.ok{background:var(--green-soft,#EAF7F0);color:var(--green,#16A05D)}.rg-st.warn{background:var(--yellow-soft,#FBF3E2);color:#B87700}.rg-st.idle{background:#F1F1F4;color:var(--ink3,#6E6E78)}
+
+/* 假日期检验 */
+.rg-pl{margin-top:6px}
+.rg-run{display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--red,#FF2442);background:#fff;color:var(--red,#FF2442);font:inherit;font-size:12.5px;font-weight:700;padding:5px 12px;border-radius:999px;cursor:pointer;transition:background .15s,transform .1s}
+.rg-run:hover{background:#FFF1F3}.rg-run:active{transform:scale(.96)}
+.rg-run-hint{display:block;font-size:11.5px;color:var(--ink3,#6E6E78);margin-top:4px}
+.rg-chips{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 6px}
+.rg-chip-d{font-size:11px;font-variant-numeric:tabular-nums;padding:1px 7px;border-radius:7px;animation:rgPop .3s cubic-bezier(.3,1.6,.5,1) both;cursor:default}
+.rg-chip-d.ok{background:var(--green-soft,#EAF7F0);color:var(--green,#16A05D)}.rg-chip-d.bad{background:#FFE7EA;color:var(--red,#FF2442);font-weight:700}
+.rg-pl-sum{font-size:12.5px;line-height:1.65;opacity:0;transform:translateY(3px);transition:opacity .35s,transform .35s}
+.rg-pl-sum.in{opacity:1;transform:none}.rg-pl-sum .rg-sub{display:block;color:var(--ink3,#6E6E78);font-size:12px}
+
+/* 证据阶梯 */
+.rg-ladder{grid-column:1/-1;opacity:0;transform:translateY(8px);transition:opacity .45s,transform .45s}
+.rg-ladder.in{opacity:1;transform:none}
+.rg-steps{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr) 22px minmax(0,1fr);gap:8px;align-items:stretch;margin-top:12px}
+.rg-step{position:relative;border:1.5px solid var(--line,#E8E5DF);border-radius:16px;padding:14px 14px 12px;background:#FCFBF9;opacity:.55;transition:opacity .4s,border-color .4s,background .4s}
+.rg-ladder.in .rg-step{animation:rgRow .5s cubic-bezier(.2,.7,.2,1) var(--d) both}
+.rg-step.on{opacity:1;border-color:rgba(22,160,93,.45);background:#fff;box-shadow:0 6px 18px rgba(22,160,93,.08)}
+.rg-step[data-s="2"],.rg-step[data-s="3"]{opacity:1;background:#fff}
+.rg-step-n{width:26px;height:26px;border-radius:50%;background:var(--ink,#1D1D1F);color:#fff;font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.rg-step.on .rg-step-n{background:var(--green,#16A05D)}
+.rg-step>b{font-size:15px}.rg-step>p{font-size:12.5px;color:var(--ink2,#55555E);line-height:1.65;margin:4px 0 8px}
+.rg-step>.rg-pill{position:absolute;top:12px;right:12px}
+.rg-arrow{display:flex;align-items:center;justify-content:center;color:#B9B4AA;font-size:18px;font-weight:700}
+@media (max-width:760px){.rg-steps{grid-template-columns:1fr}.rg-arrow{transform:rotate(90deg);height:18px}}
+
+/* 预算把握区间 */
+.rg-range{margin-top:12px;padding:14px 14px 10px;border:1px solid var(--line,#E8E5DF);border-radius:14px;background:#FCFBF9;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
+.rg-range.in{opacity:1;transform:none}
+.rg-range-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}.rg-range-h b{font-size:14px}
+.rg-bar-row{display:grid;grid-template-columns:78px minmax(0,1fr) auto;gap:10px;align-items:center;margin:6px 0;font-size:12px}
+.rg-bar-l{color:var(--ink2,#55555E)}.rg-bar-row.now .rg-bar-l{font-weight:700;color:var(--ink,#1D1D1F)}
+.rg-bar-v{font-variant-numeric:tabular-nums;color:var(--ink2,#55555E);white-space:nowrap}.rg-bar-row.now .rg-bar-v{font-weight:700;color:var(--ink,#1D1D1F)}
+.rg-bar{position:relative;height:10px;border-radius:999px;background:#EFECE7}
+.rg-bar i{position:absolute;top:0;bottom:0;left:var(--l);width:0;border-radius:999px;background:linear-gradient(90deg,rgba(255,36,66,.35),rgba(255,36,66,.75));animation:rgGrow .8s cubic-bezier(.2,.7,.2,1) var(--d) forwards}
+.rg-bar-row.proj i{background:linear-gradient(90deg,rgba(76,111,255,.3),rgba(76,111,255,.6))}
+@keyframes rgGrow{to{width:var(--w)}}
+.rg-mk{position:absolute;top:-4px;width:4px;height:18px;margin-left:-2px;border-radius:2px;background:var(--red,#FF2442);box-shadow:0 0 0 2px #fff}
+.rg-range-p{font-size:12.5px;color:var(--ink2,#55555E);line-height:1.7;margin:10px 0 2px}
+@media (max-width:640px){.rg-bar-row{grid-template-columns:64px minmax(0,1fr);}.rg-bar-v{grid-column:2;justify-self:end;margin-top:-4px}}
+
+/* 数字校验器 */
+.rg-n{border-bottom:1.5px dotted rgba(22,160,93,.65);cursor:help;transition:background .15s}
+.rg-n.rg-method{border-bottom-color:rgba(154,154,164,.7)}
+.rg-n.rg-bad{border-bottom:2px solid var(--red,#FF2442);background:#FFE7EA;color:var(--red,#FF2442);border-radius:3px;padding:0 2px}
+.rg-n:hover{background:rgba(22,160,93,.1)}
+b.gq-num.rg-n{border-bottom-style:dotted}
+.rg-badge{display:flex;align-items:center;gap:5px;font-size:11.5px;color:var(--green,#16A05D);margin:4px 0 8px;animation:rgDrop .35s ease-out both}
+.rg-badge span{color:var(--ink3,#6E6E78);font-weight:400}
+.rg-badge.bad{color:var(--red,#FF2442)}
+.ai-msg.bot{flex-wrap:wrap}.ai-msg.bot>.rg-badge{flex:0 0 100%;margin:2px 0 6px 52px}
+.gca-draft+.rg-badge{margin-left:48px}
+
+/* 幕后 */
+.rg-tbl-w{overflow-x:auto;margin:8px 0 6px}
+.rg-tbl{width:100%;border-collapse:collapse;font-size:12.5px;font-variant-numeric:tabular-nums;min-width:560px}
+.rg-tbl th{text-align:left;font-weight:600;color:var(--ink3,#6E6E78);padding:7px 8px;border-bottom:1px solid var(--line,#E8E5DF);white-space:nowrap}
+.rg-tbl td{padding:8px;border-bottom:1px solid #F1EFEB}
+.rg-tbl tr.oos td{color:var(--ink3,#6E6E78)}
+.rg-arch{width:100%;height:auto;margin:10px 0 4px}
+.rg-ab rect{fill:#fff;stroke:#DDD8D0;stroke-width:1.5}
+.rg-ab.hot rect{fill:#FFF1F3;stroke:rgba(255,36,66,.45)}.rg-ab.ai rect{fill:#F3EEFF;stroke:rgba(122,77,255,.4)}
+.rg-arch text{text-anchor:middle;font-family:inherit}.rg-arch .t{font-size:15px;font-weight:700;fill:#1D1D1F}.rg-arch .s{font-size:11.5px;fill:#6E6E78}.rg-arch .s.bad{fill:#FF2442}
+.rg-aa{stroke:#9A9AA4;stroke-width:1.8;fill:none}.rg-aa.dash{stroke-dasharray:5 5}.rg-aa.back{stroke:#FF2442;stroke-dasharray:4 4}
+.rg-ab{animation:rgPop .45s cubic-bezier(.3,1.6,.5,1) both}
+.rg-demo{display:grid;gap:8px;margin:6px 0 10px}
+.rg-demo-t{background:#FCFBF9;border:1px solid var(--line,#E8E5DF);border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.8}
+.rg-demo-t.bad{background:#FFF7F8;border-color:rgba(255,36,66,.25);font-size:12.5px;color:var(--ink2,#55555E)}
+.rg-pre{white-space:pre-wrap;background:#F7F6F3;border:1px solid var(--line,#E8E5DF);border-radius:12px;padding:10px 12px;font:12px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#3A3A42;max-height:260px;overflow:auto}
+
+/* 海报入口 */
+.rg-poster{margin-left:auto;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line,#E8E5DF);background:#fff;color:var(--ink,#1D1D1F);font:inherit;font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.rg-poster:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(29,29,31,.08)}
+@media (prefers-reduced-motion: reduce){.rg-ci,.rg-step,.rg-ladder,.rg-range,.rg-pl-sum{opacity:1!important;transform:none!important;animation:none!important}.rg-bar i{width:var(--w);animation:none}}
+
+/* 证据阶梯里的假日期结果用小方格，鼠标放上去看日期 */
+.rg-ladder .rg-chips{gap:3px}.rg-ladder .rg-chip-d{font-size:0;width:13px;height:13px;padding:0;border-radius:3px}.rg-ladder .rg-chip-d.ok{background:#4CC38A}.rg-ladder .rg-chip-d.bad{background:var(--red,#FF2442)}
+.rg-arch .s.c{text-anchor:middle}
+
+/* 执行窗口补：预算曲线横轴最右的「¥1.9 万」被图框裁掉半个字，放开裁切（卡片内边距足够） */
+#card-curve .bt-curve-box svg{overflow:visible}

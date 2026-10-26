@@ -1,0 +1,251 @@
+/* 观潮 · 动效三（fx3）：只加不改。紧跟在 rigor8.css 后加载。编号对应清单 #1～#32 */
+@property --fx3a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@property --sx{syntax:'<percentage>';inherits:true;initial-value:50%}
+
+/* #1 一杯水：去水分 */
+.fx3-glass{display:flex;gap:18px;align-items:center;margin:2px 0 14px;padding:12px 14px;border-radius:16px;background:linear-gradient(180deg,#F7F9FF,#FFF);border:1px solid #ECEFF8}
+.fx3-glass svg{flex:0 0 auto;width:150px;height:190px;overflow:visible}
+.fx3-glass .fx3-g-txt{font-size:13px;line-height:1.7;color:#5D5D68}
+.fx3-glass .fx3-g-txt b{color:#17171C}
+.fx3-glass .fx3-g-txt .r{color:#FF2442}
+.fx3-glass .fx3-g-txt .g{color:#7C7C88}
+.fx3-glass .lv{transition:transform 1s cubic-bezier(.3,.8,.3,1)}
+.fx3-glass .drain{transition:transform 1.2s cubic-bezier(.5,0,.4,1)}
+.fx3-glass .wave{animation:fx3wave 2.6s linear infinite}
+.fx3-glass .wave.b{animation-duration:3.4s;animation-direction:reverse;opacity:.6}
+@keyframes fx3wave{from{transform:translateX(0)}to{transform:translateX(-40px)}}
+.fx3-glass .lbl{font:600 11px/1 -apple-system,"PingFang SC",sans-serif;opacity:0;transition:opacity .4s}
+.fx3-glass .lbl.on{opacity:1}
+.fx3-glass .stream{stroke-dasharray:6 7;opacity:0;transition:opacity .3s}
+.fx3-glass .stream.on{opacity:1;animation:fx3flow .5s linear infinite}
+@keyframes fx3flow{to{stroke-dashoffset:-13}}
+@media (max-width:600px){.fx3-glass{flex-direction:column;align-items:flex-start}}
+
+/* #24 解码 */
+.fx3-dec{font-variant-numeric:tabular-nums}
+
+/* #2 成交流向图 */
+.fx3-flow{margin:0 0 12px;padding:10px 12px 6px;border-radius:16px;background:#FBFBFD;border:1px solid #EFEFF4}
+.fx3-flow .fx3-h{font-size:13px;color:#5D5D68;margin-bottom:4px}
+.fx3-flow svg{width:100%;height:auto;display:block}
+.fx3-flow .band{fill:none;opacity:.22;stroke-linecap:butt}
+.fx3-flow .node{font:600 16px -apple-system,"PingFang SC",sans-serif;fill:#17171C}
+.fx3-flow .node.w{fill:#fff}
+.fx3-flow .pct{font:800 21px -apple-system,"PingFang SC",sans-serif}
+
+/* #21 前后对比滑块 */
+.fx3-cmp{margin:0 0 12px;padding:10px 12px 12px;border-radius:16px;background:#FBFBFD;border:1px solid #EFEFF4;user-select:none;-webkit-user-select:none}
+.fx3-cmp .fx3-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:13px;color:#5D5D68;margin-bottom:6px}
+.fx3-cmp .fx3-big{font:800 22px/1.1 -apple-system,"PingFang SC",sans-serif;color:#17171C;font-variant-numeric:tabular-nums}
+.fx3-cmp .stage{position:relative;height:132px;border-radius:12px;overflow:hidden;touch-action:pan-y;cursor:ew-resize;background:#fff}
+.fx3-cmp .layer{position:absolute;inset:0;display:flex;align-items:flex-end;gap:6%;padding:10px 6% 0}
+.fx3-cmp .layer .bar{flex:1;display:flex;flex-direction:column-reverse;align-items:stretch;min-width:0}
+.fx3-cmp .layer .bar i{display:block;border-radius:5px 5px 0 0}
+.fx3-cmp .layer .bar i.in{background:#FF2442;border-radius:0}
+.fx3-cmp .layer .bar i.out{background:#4C6FFF}
+.fx3-cmp .layer.only{background:#fff}
+.fx3-cmp .layer.only .bar i.out{background:repeating-linear-gradient(135deg,rgba(76,111,255,.10) 0 4px,rgba(76,111,255,0) 4px 8px);border:1.5px dashed rgba(76,111,255,.4);border-bottom:none;opacity:.7}
+.fx3-cmp .layer.full .bar i.out{animation:fx3float .6s ease both}
+@keyframes fx3float{from{transform:translateY(30px);opacity:.3}to{transform:none;opacity:1}}
+.fx3-cmp .handle{position:absolute;top:0;bottom:0;width:2px;background:#17171C;margin-left:-1px;pointer-events:none}
+.fx3-cmp .handle:after{content:'⇆';position:absolute;top:50%;left:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:#17171C;color:#fff;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.fx3-cmp .tag{position:absolute;top:8px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,.9);pointer-events:none}
+.fx3-cmp .tag.l{left:8px;color:#FF2442}
+.fx3-cmp .tag.r{right:8px;color:#4C6FFF}
+.fx3-cmp .fx3-hint{font-size:12px;color:#9A9AA4;margin-top:6px}
+
+/* #3 砍价尺 */
+.fx3-ruler{margin-top:10px;padding:32px 0 4px;position:relative}
+.fx3-ruler .track{position:relative;height:10px;border-radius:6px;background:#F0F0F4}
+.fx3-ruler .ok{position:absolute;left:0;top:0;bottom:0;border-radius:6px 0 0 6px;background:linear-gradient(90deg,#BFE8D2,#16A05D)}
+.fx3-ruler .over{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(135deg,#FF2442 0 6px,#FF6A80 6px 12px);border-radius:0 6px 6px 0;transform-origin:left center;transition:opacity .5s,transform .6s}
+.fx3-ruler .over.cut{opacity:.18;transform:translateY(10px) rotate(4deg)}
+.fx3-ruler .tick{position:absolute;top:14px;font-size:10px;color:#9A9AA4;transform:translateX(-50%);white-space:nowrap}
+.fx3-ruler .tagp{position:absolute;top:4px;transform:translateX(-50%);font-size:11px;font-weight:700;white-space:nowrap;padding:2px 7px;border-radius:7px;background:#17171C;color:#fff;transition:left .7s cubic-bezier(.3,.8,.3,1)}
+.fx3-ruler .tagp:after{content:'';position:absolute;left:50%;bottom:-5px;margin-left:-4px;border:4px solid transparent;border-top-color:#17171C;border-bottom:0}
+.fx3-ruler .tagp.good{background:#16A05D}.fx3-ruler .tagp.good:after{border-top-color:#16A05D}
+.fx3-ruler .ceil{position:absolute;top:-4px;bottom:-4px;width:2px;background:#16A05D;margin-left:-1px}
+.fx3-ruler .sc{position:absolute;top:22px;font-size:18px;transform:translateX(-50%) rotate(90deg);transition:left .9s cubic-bezier(.5,0,.3,1);opacity:0}
+.fx3-ruler .sc.on{opacity:1}
+.fx3-ruler .ka{position:absolute;top:2px;font:800 13px/1 -apple-system,"PingFang SC",sans-serif;color:#FF2442;transform:translateX(-50%) scale(0);transition:transform .25s cubic-bezier(.3,1.8,.5,1)}
+.fx3-ruler .ka.on{transform:translateX(-50%) scale(1)}
+.fx3-ruler .note{font-size:12px;color:#5D5D68;margin-top:22px}
+.fx3-ruler .note b{color:#16A05D}
+.fx3-ruler .note b.r{color:#FF2442}
+
+/* #4 拉幕 */
+.fx3-curtain{position:fixed;inset:0;z-index:99990;pointer-events:none;display:flex}
+.fx3-curtain i{flex:1;background:repeating-linear-gradient(90deg,#B3001B 0 18px,#D4122F 18px 34px,#9C0016 34px 44px);box-shadow:inset 0 -40px 60px rgba(0,0,0,.35);transition:transform .8s cubic-bezier(.6,0,.3,1)}
+.fx3-curtain i.l{transform-origin:left}
+.fx3-curtain.open i.l{transform:translateX(-102%)}
+.fx3-curtain.open i.r{transform:translateX(102%)}
+.fx3-curtain b{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);color:#FFE8A3;font:800 22px/1 -apple-system,"PingFang SC",sans-serif;letter-spacing:6px;transition:opacity .3s}
+.fx3-curtain.open b{opacity:0}
+
+/* #5 翻面 */
+#main.fx3-flip{animation:fx3flip .5s cubic-bezier(.3,.7,.3,1) both;transform-origin:50% 30%}
+@keyframes fx3flip{0%{transform:perspective(1400px) rotateY(-80deg);opacity:.15}60%{opacity:1}100%{transform:none;opacity:1}}
+
+/* #6 海报显影 + 印章 + 镭射 */
+.fx3-holo{position:relative;display:inline-block;max-width:100%;transform-style:preserve-3d;transition:transform .15s ease-out;border-radius:14px}
+.fx3-holo img{display:block;max-width:100%}
+.fx3-holo.dev img{animation:fx3dev 1.3s ease both}
+@keyframes fx3dev{0%{filter:blur(16px) saturate(.4) brightness(1.3);transform:scale(.97)}100%{filter:none;transform:none}}
+.fx3-holo .sheen{position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .3s;mix-blend-mode:screen;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) calc(var(--sx,50%) - 4%),rgba(160,220,255,.35) var(--sx,50%),rgba(255,170,220,.35) calc(var(--sx,50%) + 4%),transparent 70%)}
+.fx3-holo:hover .sheen{opacity:1}
+.fx3-holo .sheen.auto{animation:fx3sheen 1.4s ease .9s 1 both}
+@keyframes fx3sheen{0%{opacity:0;--sx:0%}30%{opacity:1}100%{opacity:0;--sx:100%}}
+.fx3-stamp{position:absolute;border-radius:50%;pointer-events:none;animation:fx3stampIn .45s cubic-bezier(.3,1.5,.5,1) both}
+@keyframes fx3stampIn{0%{transform:scale(2.6) rotate(-30deg);opacity:0}70%{opacity:1}100%{transform:scale(1) rotate(-12deg);opacity:1}}
+
+/* #7 排序平滑 */
+.nt-row.fx3-mv{transition:transform .55s cubic-bezier(.3,.8,.3,1)}
+
+/* #8 排行榜赛跑 */
+#card-types .tp-row.fx3-race{transition:transform .9s cubic-bezier(.4,.1,.2,1)}
+#card-types .tp-row.fx3-race .tp-bar i{transition:width .9s cubic-bezier(.4,.1,.2,1)}
+#card-types .fx3-crown-wait .tp-crown{opacity:0!important;animation:none!important}
+#card-types .tp-crown.fx3-crown{animation:fx3crown .5s cubic-bezier(.3,1.8,.5,1) both!important}
+@keyframes fx3crown{0%{transform:translateY(-14px) scale(.3) rotate(-30deg);opacity:0}100%{transform:none;opacity:1}}
+
+/* #9 翻案印章 */
+.nt-mis.fx3-has-fan{position:relative}
+.fx3-fan{position:absolute;right:-30px;top:-15px;font:900 12px/1 -apple-system,"PingFang SC",sans-serif;color:#FF2442;border:2px solid #FF2442;border-radius:6px;padding:3px 5px;background:rgba(255,255,255,.85);letter-spacing:1px;pointer-events:none;animation:fx3fan .55s cubic-bezier(.3,1.6,.5,1) both;z-index:2}
+@keyframes fx3fan{0%{transform:scale(2.8) rotate(-28deg);opacity:0}60%{opacity:1}100%{transform:rotate(-12deg);opacity:1}}
+.nt-row.fx3-thud{animation:fx3thud .32s ease}
+@keyframes fx3thud{0%,100%{transform:none}30%{transform:translateY(2px)}60%{transform:translateY(-1px)}}
+
+/* 大图工具条 + 覆盖层（#10 #19 #20） */
+.fx3-tools{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 8px}
+.fx3-tools button{all:unset;cursor:pointer;font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid #E6E6EC;background:#fff;color:#17171C;transition:background .15s,border-color .15s}
+.fx3-tools button:hover{border-color:#FF8A9A;background:#FFF6F7}
+.fx3-tools button[disabled]{opacity:.45;pointer-events:none}
+.fx3-ov{position:absolute;pointer-events:none;overflow:visible}
+.fx3-ov.draw{pointer-events:auto;touch-action:none;cursor:crosshair}
+.fx3-panel{position:absolute;left:50%;top:10px;transform:translateX(-50%);background:rgba(23,23,28,.92);color:#fff;border-radius:12px;padding:8px 14px;font-size:13px;line-height:1.6;text-align:center;z-index:3;box-shadow:0 6px 20px rgba(0,0,0,.18);max-width:92%}
+.fx3-panel b{color:#FFD66B;font-size:18px}
+.fx3-panel button{all:unset;cursor:pointer;margin:4px 4px 0;padding:2px 10px;border-radius:999px;background:rgba(255,255,255,.14);font-size:12px}
+.fx3-cnt{position:absolute;right:12px;top:6px;background:rgba(255,255,255,.94);border:1px solid #EFEFF4;border-radius:10px;padding:4px 10px;font-size:12px;color:#5D5D68;z-index:3}
+.fx3-cnt b{font-size:18px;color:#FF2442;font-variant-numeric:tabular-nums}
+.nt-chart-box svg.fx3-hidebase .nt-base,.nt-chart-box svg.fx3-hidebase .nt-base-smooth,.nt-chart-box svg.fx3-hidebase .nt-water,.nt-chart-box svg.fx3-hidebase .wow-tide>path:not(.nt-real-smooth),.nt-chart-box svg.fx3-hidebase .wow-hide,.nt-chart-box svg.fx3-hidebase [class*=band]{opacity:0!important;transition:opacity .3s}
+.fx3-boat{transition:transform .7s ease-in,opacity .7s ease-in}
+.fx3-boat.sink{transform:translateY(16px);opacity:0}
+
+/* #11 48 小时表盘 */
+.fx3-dial{display:inline-block;width:22px;height:22px;margin-left:8px;vertical-align:-4px}
+.fx3-dial .hand{transform-origin:11px 11px;animation:fx3dial 1.3s cubic-bezier(.4,0,.3,1) both}
+@keyframes fx3dial{from{transform:rotate(0)}to{transform:rotate(720deg)}}
+.fx3-dial .lab{font:700 6px/1 -apple-system,sans-serif;fill:#9A9AA4}
+.fx3-hold .tlight-lamp{animation-play-state:paused!important}
+
+/* #12 数字校验扫光 */
+.rg-n.fx3-sw{animation:fx3sw .8s ease var(--d,0s) both}
+@keyframes fx3sw{0%{background:transparent}35%{background:rgba(22,160,93,.28);box-shadow:0 0 0 2px rgba(22,160,93,.18)}100%{background:transparent;box-shadow:none}}
+.rg-n.fx3-sw:after{content:'✓';display:inline-block;font-size:.72em;font-weight:800;color:#16A05D;margin-left:1px;vertical-align:.45em;animation:fx3tick 1.6s ease var(--d,0s) both}
+@keyframes fx3tick{0%{transform:scale(0);opacity:0}20%{transform:scale(1.3);opacity:1}35%{transform:scale(1)}80%{opacity:1}100%{opacity:0;transform:scale(.8)}}
+
+/* #13 潮水换场 */
+.fx3-wash{position:fixed;z-index:99980;pointer-events:none;overflow:hidden}
+.fx3-wash .snap{position:absolute;inset:0;transition:clip-path .75s cubic-bezier(.6,0,.35,1)}
+.fx3-wash .front{position:absolute;top:-10%;bottom:-10%;width:90px;right:-90px;transition:right .75s cubic-bezier(.6,0,.35,1);background:linear-gradient(90deg,rgba(255,255,255,0),rgba(140,180,255,.55) 45%,rgba(255,255,255,.95) 60%,rgba(140,180,255,.35) 80%,rgba(255,255,255,0));filter:blur(1px)}
+
+/* #14 店主表情 */
+.fx3-face{display:inline-block;font-size:24px;margin-right:6px;transition:transform .2s;flex:0 0 auto}
+.fx3-face.happy{animation:fx3bob .8s ease-in-out infinite}
+.fx3-face.sweat{animation:fx3shake .35s linear infinite}
+@keyframes fx3bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes fx3shake{0%,100%{transform:translate(0,0) rotate(0)}25%{transform:translate(calc(var(--k,1)*-2px),1px) rotate(calc(var(--k,1)*-4deg))}75%{transform:translate(calc(var(--k,1)*2px),-1px) rotate(calc(var(--k,1)*4deg))}}
+
+/* #15 身份卡 3D */
+.gcd-id.fx3-tilt{transition:transform .12s ease-out,box-shadow .2s;transform-style:preserve-3d;position:relative;overflow:hidden}
+.gcd-id .fx3-gloss{position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .25s;background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.28),rgba(255,255,255,0) 55%)}
+.gcd-id.fx3-tilt:hover .fx3-gloss{opacity:1}
+
+/* #16 夜潮水波 */
+.fx3-rip{position:fixed;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;border:1.5px solid rgba(160,190,255,.55);pointer-events:none;z-index:0;animation:fx3rip 1.1s ease-out forwards}
+@keyframes fx3rip{from{transform:scale(.2);opacity:.9}to{transform:scale(2.6);opacity:0}}
+
+/* #27 月光 */
+.fx3-rays{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;transition:opacity .6s}
+.gcd.gcd-level .fx3-rays{opacity:0}
+.fx3-rays i{position:absolute;top:-30%;width:140px;height:150%;background:linear-gradient(180deg,rgba(255,236,200,.13),rgba(255,236,200,0) 72%);transform-origin:50% 0;mix-blend-mode:screen;animation:fx3ray 9s ease-in-out infinite alternate}
+@keyframes fx3ray{from{transform:rotate(14deg)}to{transform:rotate(24deg)}}
+
+/* #28 称号星光 */
+.fx3-spark{position:relative;display:inline-block}
+.fx3-spark .st{position:absolute;font-size:15px;-webkit-text-fill-color:#FFD66B;color:#FFD66B;pointer-events:none;animation:fx3twinkle 1.6s ease-in-out infinite;text-shadow:0 0 6px rgba(255,214,107,.8)}
+.fx3-spark .st::before{content:'✦'}
+@keyframes fx3twinkle{0%,100%{transform:scale(0) rotate(0);opacity:0}22%,68%{transform:scale(1) rotate(60deg);opacity:1}}
+
+/* #17 小红书笔记小卡 */
+.fx3-xhs{display:flex;gap:12px;align-items:stretch;margin:10px 0 12px;padding:10px;border-radius:14px;background:#FAFAFC;border:1px solid #EFEFF4;animation:fx3xhs .5s cubic-bezier(.3,1.3,.5,1) both}
+@keyframes fx3xhs{from{transform:translateY(8px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+.fx3-xhs .cv{flex:0 0 92px;height:112px;border-radius:10px;position:relative;display:flex;align-items:center;justify-content:center;font-size:34px;overflow:hidden}
+.fx3-xhs .cv span{position:absolute;left:6px;bottom:6px;font-size:10px;font-weight:700;color:#fff;background:rgba(0,0,0,.25);padding:1px 6px;border-radius:6px}
+.fx3-xhs .mt{display:flex;flex-direction:column;justify-content:space-between;min-width:0;flex:1}
+.fx3-xhs .tt{font-weight:700;font-size:14px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.fx3-xhs .ft{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#7C7C88;gap:6px}
+.fx3-xhs .ft .hot{color:#FF2442;font-weight:700;white-space:nowrap}
+.fx3-xhs .sy{font-size:10px;color:#9A9AA4;border:1px solid #E2E2E8;border-radius:5px;padding:0 5px;margin-left:6px;font-weight:400}
+
+/* #18 已复制小红心 */
+.fx3-heart{display:inline-block;color:#FF2442;margin-left:6px;animation:fx3heart .7s cubic-bezier(.3,1.8,.5,1) both}
+@keyframes fx3heart{0%{transform:scale(0)}50%{transform:scale(1.5)}100%{transform:scale(1)}}
+
+/* #22 架构图光束 */
+.rg-arch .fx3-beam-dot{filter:drop-shadow(0 0 4px rgba(255,36,66,.9))}
+
+/* #23 荧光笔 */
+mark.fx3-hl{color:inherit;padding:0 1px;border-radius:3px;background-image:linear-gradient(100deg,rgba(255,214,107,.0),rgba(255,214,107,.75) 6%,rgba(255,214,107,.6) 94%,rgba(255,214,107,0));background-repeat:no-repeat;background-size:0% 70%;background-position:0 85%;background-color:transparent;animation:fx3hl 1.1s cubic-bezier(.5,0,.2,1) .2s forwards}
+@keyframes fx3hl{to{background-size:100% 70%}}
+
+/* #25 边框流光 */
+#card-todo .gca-item{position:relative}
+#card-todo .gca-item:not(.ok)::after,.rg-chip::after{content:'';position:absolute;inset:-1.5px;border-radius:inherit;padding:1.5px;pointer-events:none;background:conic-gradient(from var(--fx3a),transparent 0 78%,rgba(255,36,66,.0) 80%,#FF2442 90%,#FFB3BE 94%,transparent 98%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:fx3beam 6s linear 1.4s infinite;opacity:0}
+.rg-chip{position:relative}
+.rg-chip::after{background:conic-gradient(from var(--fx3a),transparent 0 76%,#16A05D 88%,#9BE3BD 93%,transparent 98%);animation-delay:2s}
+@keyframes fx3beam{0%{--fx3a:0deg;opacity:1}38%{--fx3a:360deg;opacity:1}39%,100%{--fx3a:360deg;opacity:0}}
+
+/* #26 标语轮换 */
+.fx3-rot{display:inline-block;position:relative;height:1.4em;vertical-align:bottom;overflow:hidden;color:#FF2442;font-weight:700}
+.fx3-rot i{font-style:normal;display:block;transition:transform .45s cubic-bezier(.3,.8,.3,1),opacity .45s}
+.fx3-rot i:not(.on){position:absolute;left:0;top:0;transform:translateY(100%);opacity:0}
+.fx3-rot i.out{position:absolute;left:0;top:0;transform:translateY(-100%);opacity:0}
+
+/* #29 滚动水位线 */
+.fx3-scroll{position:fixed;left:0;top:0;height:3px;width:0;z-index:9500;pointer-events:none;background:linear-gradient(90deg,#4C6FFF,#FF2442);border-radius:0 3px 3px 0;transition:width .12s linear}
+.fx3-scroll:after{content:'';position:absolute;right:-6px;top:-3px;width:10px;height:9px;border-radius:50%;background:#FF2442;opacity:.35;animation:fx3bub 1.2s ease-in-out infinite}
+@keyframes fx3bub{0%,100%{transform:scale(.6)}50%{transform:scale(1.2)}}
+
+/* #30 小卡聚光 */
+.hero-minis .mini.fx3-mag{position:relative;overflow:hidden}
+.hero-minis .mini .fx3-spot{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .25s;background:radial-gradient(120px circle at var(--mx,50%) var(--my,50%),rgba(255,36,66,.14),rgba(255,36,66,0) 70%)}
+.hero-minis .mini.fx3-mag:hover .fx3-spot{opacity:1}
+
+/* #31 点击火花 */
+.fx3-spk{position:fixed;width:2px;height:9px;margin:-4px 0 0 -1px;border-radius:2px;background:#FF2442;pointer-events:none;z-index:99999;animation:fx3spk .5s ease-out forwards}
+@keyframes fx3spk{from{transform:rotate(var(--r)) translateY(-4px) scaleY(1);opacity:1}to{transform:rotate(var(--r)) translateY(-22px) scaleY(.3);opacity:0}}
+
+/* #32 种草天气预报 */
+.fx3-wx .fx3-days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:8px 0 6px}
+.fx3-wx .d{border-radius:12px;background:#F7F8FB;padding:8px 2px;text-align:center;font-size:12px;color:#5D5D68;animation:fx3pop .4s cubic-bezier(.3,1.5,.5,1) both}
+.fx3-wx .d .ic{font-size:22px;line-height:1.3}
+.fx3-wx .d b{display:block;color:#17171C;font-size:14px;font-variant-numeric:tabular-nums}
+.fx3-wx .d.hi{background:#EEF2FF}
+.fx3-wx .d.lo{background:#FFF7EC}
+.fx3-wx .d .tg{font-size:10px;font-weight:700}
+.fx3-wx .d.hi .tg{color:#4C6FFF}.fx3-wx .d.lo .tg{color:#D99400}
+@keyframes fx3pop{from{transform:translateY(8px) scale(.9);opacity:0}to{transform:none;opacity:1}}
+@media (max-width:600px){.fx3-wx .fx3-days{gap:3px}.fx3-wx .d{padding:6px 0;font-size:10px}.fx3-wx .d .ic{font-size:17px}.fx3-wx .d b{font-size:12px}}
+
+@media (prefers-reduced-motion: reduce){
+  .fx3-glass .wave,.fx3-rays i,.rg-chip::after,#card-todo .gca-item::after,.fx3-face,.fx3-spark .st{animation:none!important}
+}
+
+/* 顺手修：手机上「投流去水分」卡片比屏幕宽、右边被裁（早先版本就有），让卡片按屏幕宽排 */
+@media (max-width:600px){
+  #sec-boost .boost-grid{grid-template-columns:minmax(0,1fr)!important}
+  #sec-boost .boost-card{min-width:0}
+  #sec-boost .boost-formula{flex-wrap:wrap;white-space:normal}
+}
+.fx3-cmp .fx3-big{white-space:nowrap}
